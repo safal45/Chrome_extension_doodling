@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Tldraw } from "tldraw";
+import React from "react";
+
+// Define your custom background component
+const YourCustomBackground = () => {
+  // Customize the background component as per your requirement
+  return (
+    <div
+      className="bg-transparent w-full h-full" // Apply Tailwind CSS class to set background color to transparent
+    >
+      {/* This will set the background color to transparent */}
+    </div>
+  );
+};
 
 function App() {
+ 
+  const components = {
+    Background: YourCustomBackground,
+    // Define other components if needed
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+      }}
+    >
+      <Tldraw components={components} />
     </div>
   );
 }
